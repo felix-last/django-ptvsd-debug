@@ -6,7 +6,7 @@ from django.conf import settings
 
 class Command(runserver.Command):
     def add_arguments(self, parser):
-        super().add_arguments(parser)
+        super(Command, self).add_arguments(parser)
 
         parser.add_argument('--ptvsd', action='store_true', dest='use_ptvsd',
             help='Enable PTVSD at runtime',
@@ -25,4 +25,4 @@ class Command(runserver.Command):
                     print('PTVSD: Waiting for attach...')
                     ptvsd.wait_for_attach()
 
-        super().run(*args, **options)
+        super(Command, self).run(*args, **options)
